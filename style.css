@@ -1,0 +1,150 @@
+/* ダウト / 神経衰弱 のサポートサイト。
+   アプリ本体（深夜の卓）と同じ色を、紙の上に置いた形で使う。 */
+
+:root {
+  --paper:   #F7F3E9;
+  --card:    #FFFFFF;
+  --ink:     #22140F;
+  --body:    #4A3B33;
+  --muted:   #7A6A5E;
+  --muted2:  #8B7A6C;
+  --line:    #E3DACA;
+  --gold:    #9A6E14;
+  --gold-bg: #F3E7C9;
+  --oxblood: #63272B;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:   #14100F;
+    --card:    #1D1817;
+    --ink:     #F1E9DC;
+    --body:    #C9BCAF;
+    --muted:   #9A8B7E;
+    --muted2:  #8A7B6E;
+    --line:    #362C29;
+    --gold:    #F0C173;
+    --gold-bg: #2A2113;
+    --oxblood: #C4685A;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--body);
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+               system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 40px 22px 80px; }
+
+/* 見出し */
+.mast { border-bottom: 2px solid var(--ink); padding-bottom: 20px; margin-bottom: 8px; }
+
+.brand {
+  display: inline-flex; align-items: center; gap: 9px;
+  text-decoration: none; color: var(--muted);
+  font-size: 13px; letter-spacing: .08em;
+}
+.brand .pip {
+  width: 22px; height: 30px; border-radius: 3px;
+  background: linear-gradient(160deg, var(--oxblood), #2C1113);
+  box-shadow: inset 0 0 0 1px rgba(240, 193, 115, .45);
+  display: inline-block;
+}
+
+h1 {
+  margin: 14px 0 0;
+  font-size: clamp(26px, 6vw, 34px);
+  line-height: 1.35;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+.sub { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+
+h2 {
+  margin: 46px 0 4px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  font-size: 19px;
+  color: var(--ink);
+  font-weight: 700;
+}
+h3 { margin: 30px 0 4px; font-size: 16px; color: var(--ink); font-weight: 700; }
+
+p { margin: 12px 0; }
+strong { color: var(--ink); }
+
+ul { padding-left: 1.25em; margin: 12px 0; }
+li { margin: 6px 0; }
+
+a { color: var(--gold); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+
+/* 要点の箱 */
+.lead {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+  padding: 18px 20px;
+  margin: 26px 0;
+}
+.lead p { margin: 0; }
+.lead p + p { margin-top: 10px; }
+
+/* 表 */
+.tablewrap { overflow-x: auto; margin: 16px 0; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td {
+  text-align: left; vertical-align: top;
+  padding: 11px 14px 11px 0;
+  border-bottom: 1px solid var(--line);
+}
+th { color: var(--muted); font-weight: 500; white-space: nowrap; width: 38%; }
+
+/* アプリ一覧 */
+.apps { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 12px; }
+.apps a {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+  padding: 18px 20px;
+  transition: border-color .15s;
+}
+.apps a:hover { border-color: var(--gold); }
+.apps .name { display: block; color: var(--ink); font-weight: 700; font-size: 17px; }
+.apps .what { display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
+
+/* 言語の切り替え */
+.langs { display: flex; gap: 8px; margin: 24px 0 0; }
+.langs a {
+  font-size: 13px; letter-spacing: .06em; text-decoration: none;
+  color: var(--muted); border: 1px solid var(--line); border-radius: 4px;
+  padding: 5px 13px;
+}
+.langs a:hover { color: var(--gold); border-color: var(--gold); }
+
+.foot {
+  margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--line);
+  color: var(--muted2); font-size: 13px;
+}
+.foot a { color: var(--muted2); }
+
+.updated {
+  font-size: 13px; color: var(--muted2);
+  margin-top: 6px;
+}
+
+hr.rule {
+  border: 0; border-top: 2px solid var(--ink);
+  margin: 64px 0 0;
+}
